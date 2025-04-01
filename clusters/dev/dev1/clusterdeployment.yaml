@@ -2,7 +2,7 @@ apiVersion: k0rdent.mirantis.com/v1alpha1
 kind: ClusterDeployment
 metadata:
   name: vsurzhyk-aws-managed-dev-1
-  namespace: kcm-system
+  namespace: dev
 spec:
   template: aws-standalone-cp-0-2-0
   credential: aws-cluster-identity-cred
