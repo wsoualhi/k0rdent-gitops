@@ -1,0 +1,14 @@
+apiVersion: k0rdent.mirantis.com/v1alpha1
+kind: AccessManagement
+namespace: kcm-system
+metadata:
+  labels:
+    k0rdent.mirantis.com/component: kcm
+  name: kcm
+spec:
+  accessRules:
+  - targetNamespaces:
+      list:
+        - dev
+    clusterTemplateChains:
+      - dev
