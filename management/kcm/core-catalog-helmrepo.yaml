@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: catalog-core
+  namespace: kcm-system
+spec:
+  provider: generic
+  type: oci
+  url: oci://ghcr.io/k0rdent/catalog/charts
+status: {}
