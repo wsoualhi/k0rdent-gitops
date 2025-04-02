@@ -16,6 +16,12 @@
 │   ├── stage
 │   └── prod
 │       
+├── servicetemplates    # beach head servicetemplates
+│   ├── base 
+│   ├── dev
+│   ├── stage
+│   └── prod
+│       
 ├── services            # beach head services configs
 │   ├── cert-manager
 │   │   ├── base

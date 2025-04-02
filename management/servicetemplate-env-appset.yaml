@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: servicetemplate-env-appset
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/ironreality/k0rdent-gitops
+        revision: HEAD
+        directories:
+          - path: servicetemplates/*
+          - path: servicetemplates/base
+            exclude: true
+  template:
+    metadata:
+      name: '{{path.basename}}-servicetemplates'
+    spec:
+      project: '{{path.basename}}'
+      source:
+        repoURL: https://github.com/ironreality/k0rdent-gitops
+        targetRevision: HEAD
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: argocd
