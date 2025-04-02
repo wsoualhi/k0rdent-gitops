@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  annotations:
+  name: stage
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  destinations:
+  - namespace: stage
+    server: https://kubernetes.default.svc
+  sourceRepos:
+  - https://github.com/ironreality/k0rdent-gitops
+status: {}

@@ -1,0 +1,8 @@
+apiVersion: k0rdent.mirantis.com/v1alpha1
+kind: ClusterTemplateChain
+metadata:
+  name: stage
+  namespace: kcm-system
+spec:
+  supportedTemplates:
+    - name: aws-standalone-cp-0-2-0
