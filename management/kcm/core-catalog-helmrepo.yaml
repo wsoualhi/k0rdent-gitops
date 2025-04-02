@@ -4,7 +4,7 @@ metadata:
   name: catalog-core
   namespace: kcm-system
 spec:
+  interval: 10m0s
   provider: generic
   type: oci
   url: oci://ghcr.io/k0rdent/catalog/charts
-status: {}
