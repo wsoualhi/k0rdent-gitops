@@ -42,7 +42,8 @@
     ├── dev             # dev env's kcm & argocd configs
     ├── stage
     ├── prod
-    ├── env-config-appset.yaml            # per-env argocd configs generator
+    ├── env-config-appset.yaml            # per-env configs generator
+    ├── servicetemplate-env-appset.yaml   # per-env servicetemplate generator
     ├── k0rdent-config-app.yaml           # argocd app for kcm configuration
     └── sealed-secrets-app.yaml           # argocd app for sealed-secret
 ```
