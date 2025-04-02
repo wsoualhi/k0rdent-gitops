@@ -3,19 +3,20 @@
 ## Repo structure
 ```
 /
-├── clusters            # child clusters' kustomize overlays
+├── clusters            # child clusters' manifests
+│   ├── dev             
+│   │   └── dev1        # dev/dev1 cluster manifest
+│   ├── stage
+│   └── prod
+│       
+├── credentials         # child clusters platform credentials
 │   ├── base 
+│   ├── kcm             # kcm-system namespace secrets
 │   ├── dev
 │   ├── stage
 │   └── prod
 │       
-├── credentials         # child clusters platform credentials' kustomize overlays
-│   ├── base 
-│   ├── dev
-│   ├── stage
-│   └── prod
-│       
-├── services            # child clusters beach head services' kustomize overlays
+├── services            # beach head services configs
 │   ├── cert-manager
 │   │   ├── base
 │   │   ├── dev
@@ -26,13 +27,16 @@
 │   ├── cert-manager
 │   ├── kof-storage
 │   ├── kof-operators
+│   ├── kof-mothership
 │   ├── kof-collectors
 │   └── dex
 │       
 └── management          # management cluster's apps & configs
-    ├── k0rdent
-    ├── kof-operator
-    ├── kof-mothership
-    ├── sealed-secret
-    └── argocd
+    ├── kcm             # kcm configs
+    ├── dev             # dev env's kcm & argocd configs
+    ├── stage
+    ├── prod
+    ├── env-config-appset.yaml            # per-env argocd configs generator
+    ├── k0rdent-config-app.yaml           # argocd app for kcm configuration
+    └── sealed-secrets-app.yaml           # argocd app for sealed-secret
 ```
