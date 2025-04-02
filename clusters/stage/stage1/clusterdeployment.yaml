@@ -1,0 +1,16 @@
+apiVersion: k0rdent.mirantis.com/v1alpha1
+kind: ClusterDeployment
+metadata:
+  name: vsurzhyk-aws-managed-stage-1
+  namespace: stage
+spec:
+  clusterLabels:
+    env: stage
+  template: aws-standalone-cp-0-2-0
+  credential: aws-cluster-identity-cred
+  config:
+    region: eu-west-1
+    controlPlane:
+      instanceType: t3.medium
+    worker:
+      instanceType: t3.medium
