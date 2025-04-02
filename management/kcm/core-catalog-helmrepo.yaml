@@ -3,6 +3,8 @@ kind: HelmRepository
 metadata:
   name: catalog-core
   namespace: kcm-system
+  annotations:
+    argocd.argoproj.io/ignore-healthcheck: "true"
 spec:
   interval: 10m0s
   provider: generic
