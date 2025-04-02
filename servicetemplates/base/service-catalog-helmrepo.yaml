@@ -3,6 +3,8 @@ kind: HelmRepository
 metadata:
   name: catalog-core
   namespace: kcm-system
+  annotations:
+    argocd.argoproj.io/ignore-healthcheck: "true"
   labels:
     k0rdent.mirantis.com/managed: "true"
 spec:
