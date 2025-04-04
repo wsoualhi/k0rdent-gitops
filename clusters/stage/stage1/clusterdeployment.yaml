@@ -9,7 +9,9 @@ spec:
   template: aws-standalone-cp-0-2-0
   credential: aws-cluster-identity-cred
   config:
-    region: eu-west-1
+    clusterLabels:
+      env: stage
+    region: eu-west-2
     controlPlane:
       instanceType: t3.medium
     worker:

@@ -2,13 +2,13 @@ apiVersion: k0rdent.mirantis.com/v1alpha1
 kind: ClusterDeployment
 metadata:
   name: vsurzhyk-aws-managed-dev-1
-  namespace: dev
+  #namespace: dev
 spec:
-  clusterLabels:
-    env: dev
   template: aws-standalone-cp-0-2-0
   credential: aws-cluster-identity-cred
   config:
+    clusterLabels:
+      env: dev
     controlPlaneNumber: 3
     workersNumber: 1
     region: eu-central-1
