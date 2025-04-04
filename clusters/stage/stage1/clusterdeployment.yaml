@@ -9,7 +9,7 @@ spec:
   config:
     clusterLabels:
       env: stage
-    region: eu-west-2
+    region: eu-central-1
     controlPlane:
       instanceType: t3.medium
     worker:
