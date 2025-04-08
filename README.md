@@ -40,9 +40,10 @@
 └── management          # management cluster's apps & configs
     ├── kcm             # kcm configs
     ├── argocd          # argocd configs
-    ├── dev             # dev env's kcm & argocd configs
-    ├── stage
-    ├── prod
+    ├── env             # env-related kcm & argocd configs
+    │   ├── dev
+    │   ├── stage
+    │   └── prod
     ├── env-config-appset.yaml            # per-env configs generator
     ├── servicetemplate-env-appset.yaml   # per-env servicetemplate generator
     ├── k0rdent-config-app.yaml           # argocd app for kcm configuration

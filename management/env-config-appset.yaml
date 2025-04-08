@@ -9,11 +9,7 @@ spec:
         repoURL: https://github.com/ironreality/k0rdent-gitops
         revision: HEAD
         directories:
-          - path: management/*
-          - path: management/kcm
-            exclude: true
-          - path: management/argocd
-            exclude: true
+          - path: management/env/*
   template:
     metadata:
       name: '{{path.basename}}-config'
