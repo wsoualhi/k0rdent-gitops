@@ -12,6 +12,8 @@ spec:
           - path: management/*
           - path: management/kcm
             exclude: true
+          - path: management/argocd
+            exclude: true
   template:
     metadata:
       name: '{{path.basename}}-config'
