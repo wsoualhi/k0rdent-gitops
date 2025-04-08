@@ -13,4 +13,11 @@ spec:
     server: https://kubernetes.default.svc
   sourceRepos:
   - https://github.com/ironreality/k0rdent-gitops
+  roles:
+  - description: stage project administrator
+    groups:
+    - stage
+    name: admin
+    policies:
+    - p, proj:stage:admin, *, *, *, allow
 status: {}

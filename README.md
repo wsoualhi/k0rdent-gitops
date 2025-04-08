@@ -47,3 +47,26 @@
     ├── k0rdent-config-app.yaml           # argocd app for kcm configuration
     └── sealed-secrets-app.yaml           # argocd app for sealed-secret
 ```
+
+## Bootstrap k0rdent management cluster
+
+## SSO setup (example for Okta)
+
+### Setup OIDC for kind-based management cluster
+
+https://docs.k0rdent.io/v0.2.0/admin/installation/auth/okta/
+
+Okta auth app setup example:
+https://developer.okta.com/blog/2021/10/08/secure-access-to-aws-eks#configure-your-okta-org
+
+k0rdent RBAC setup
+https://docs.k0rdent.io/v0.2.0/admin/access/rbac/
+
+
+### Setup OIDC for argocd
+
+https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/#existing-oidc-provider
+
+Argocd RBAC setup documents:
+https://argo-cd.readthedocs.io/en/stable/operator-manual/rbac/
+https://argo-cd.readthedocs.io/en/stable/user-guide/projects/#project-roles
