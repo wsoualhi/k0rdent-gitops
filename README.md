@@ -1,5 +1,18 @@
 # k0rdent multi-env gitops repo blueprint
 
+## Table of content
+
+<!-- toc -->
+
+- [Repo structure](#repo-structure)
+- [Bootstrap k0rdent management cluster](#bootstrap-k0rdent-management-cluster)
+- [Cluster credentials encryption using sealed-secrets](#cluster-credentials-encryption-using-sealed-secrets)
+- [SSO setup (example for Okta)](#sso-setup-example-for-okta)
+  * [Setup OIDC for kind-based management cluster](#setup-oidc-for-kind-based-management-cluster)
+  * [Setup OIDC for argocd](#setup-oidc-for-argocd)
+
+<!-- tocstop -->
+
 ## Repo structure
 ```
 /
@@ -53,8 +66,6 @@
 ├── doc                                   # documentation
 └── other                                 # additional scripts, configs etc.
 ```
-
-[TOC]
 
 ## Bootstrap k0rdent management cluster
 
