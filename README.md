@@ -169,9 +169,8 @@ kubectl rollout restart deployment -n sealed-secrets sealed-secrets
 ### Setup OIDC for kind-based management cluster
 
 **For the sake of simplicity we're using only two user groups here:**
-1. **dev** - group members have access only to the management cluster "dev" namespace and the related argocd project.
-2. **admin** - group members have full access to the management cluster and argocd projects ("default", "dev", "stage")
-
+  **dev** - group members have access only to the management cluster "dev" namespace and the related argocd project.
+  **admin** - group members have full access to the management cluster and argocd projects ("default", "dev", "stage")
 
 1. See [kind OIDC with Okta setup guide](https://docs.k0rdent.io/v0.2.0/admin/installation/auth/okta/) for the details.
 
