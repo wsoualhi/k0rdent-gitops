@@ -1,0 +1,30 @@
+apiVersion: apiserver.config.k8s.io/v1beta1
+kind: AuthenticationConfiguration
+jwt:
+  - issuer:
+      url: "https://trial-6424061.okta.com/oauth2/ausqbdpmlgOuS1opH697"
+      audiences:
+        - 0oaqbdpjf3GOrVklP697
+    claimMappings:
+      username:
+        claim: email
+        prefix: ""
+      groups:
+        claim: groups
+        prefix: ""
+    claimValidationRules:
+      - expression: "has(claims.email)"
+        message: "email claim must be present"
+      - expression: "claims.email != ''"
+        message: "email claim must be non-empty"
+      - expression: "has(claims.groups)"
+        message: "groups claim must be present"
+      - expression: "type(claims.groups) == list ? size(claims.groups) > 0 : true"
+        message: "groups list must be non-empty"
+      - expression: "type(claims.groups) == string ? claims.groups.size() > 0 : true"
+        message: "groups string must be non-empty"        
+    userValidationRules:
+      - expression: "!user.username.startsWith('system:')"
+        message: "username cannot use reserved system: prefix"
+      - expression: "user.groups.all(group, !group.startsWith('system:'))"
+        message: "groups cannot use reserved system: prefix"

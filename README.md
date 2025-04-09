@@ -7,7 +7,7 @@
 - [Repo structure](#repo-structure)
 - [Bootstrap k0rdent management cluster](#bootstrap-k0rdent-management-cluster)
 - [Cluster credentials encryption using sealed-secrets](#cluster-credentials-encryption-using-sealed-secrets)
-- [SSO setup (example for Okta)](#sso-setup-example-for-okta)
+- [SSO OIDC setup (Okta-based)](#sso-oidc-setup-okta-based)
   * [Setup OIDC for kind-based management cluster](#setup-oidc-for-kind-based-management-cluster)
   * [Setup OIDC for argocd](#setup-oidc-for-argocd)
 
@@ -71,7 +71,7 @@
 
 1. Create the management cluster using kind
 
-**If you're going to configure SSO (OIDC) then create cluster using [#sso]**
+**If you're going to configure SSO (OIDC) (which usually a fact for multi-env setups) then create cluster using [SSO OIDC setup (Okta-based)](#sso-oidc-setup-okta-based)**
 
 (You might use any Kubernetes distro for the management cluster instead of kind. For example, [here](https://docs.k0rdent.io/v0.2.0/quickstarts/quickstart-1-mgmt-node-and-cluster/#install-a-single-node-k0s-cluster-locally-as-the-management-cluster) is k0s installation manual from k0rdent documentation.)
 ```console
@@ -164,23 +164,26 @@ kubectl rollout restart deployment -n sealed-secrets sealed-secrets
 ```
 
 
-## SSO setup (example for Okta)
+## SSO OIDC setup (Okta-based)
 
 ### Setup OIDC for kind-based management cluster
 
-https://docs.k0rdent.io/v0.2.0/admin/installation/auth/okta/
+1. See [kind OIDC with Okta setup guide](https://docs.k0rdent.io/v0.2.0/admin/installation/auth/okta/) for the details.
 
-Okta auth app setup example:
-https://developer.okta.com/blog/2021/10/08/secure-access-to-aws-eks#configure-your-okta-org
+1. Examples<br>
+[kind cluster config](./other/kind-config.yaml)<br>
+[kind cluster authentication config](./other/authentication-config.yaml)
 
-k0rdent RBAC setup
-https://docs.k0rdent.io/v0.2.0/admin/access/rbac/
+1. [k0rdent RBAC documentation](https://docs.k0rdent.io/v0.2.0/admin/access/rbac/)
 
 
 ### Setup OIDC for argocd
 
-https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/#existing-oidc-provider
-
-Argocd RBAC setup documents:
-https://argo-cd.readthedocs.io/en/stable/operator-manual/rbac/
-https://argo-cd.readthedocs.io/en/stable/user-guide/projects/#project-roles
+1. [Configure OIDC for argocd](https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/#existing-oidc-provider)
+1. Argocd RBAC documentation<br>
+[argocd global RBAC documentation](https://argo-cd.readthedocs.io/en/stable/operator-manual/rbac/)<br>
+[argocd per-project RBAC documentation](https://argo-cd.readthedocs.io/en/stable/user-guide/projects/#project-roles)
+3. Examples<br>
+[argocd global config manifest](./management/argocd/argocd-cm.yaml)<br>
+[argocd global RBAC config manifest](./management/argocd/argocd-rbac-cm.yaml)<br>
+[argocd per-project RBAC manifest example](./management/env/dev/argocd-project.yaml)
