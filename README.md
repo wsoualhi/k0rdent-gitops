@@ -54,7 +54,7 @@
 └── other                                 # additional scripts, configs etc.
 ```
 
-[[_TOC_]]
+[TOC]
 
 ## Bootstrap k0rdent management cluster
 
