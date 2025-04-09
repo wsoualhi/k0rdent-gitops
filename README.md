@@ -7,27 +7,27 @@
 │   ├── dev             
 │   │   └── dev1        # dev/dev1 cluster manifest
 │   ├── stage
-│   └── prod
+│   └── (prod)
 │       
 ├── credentials         # child clusters platform credentials
 │   ├── base 
 │   ├── kcm             # kcm-system namespace secrets
 │   ├── dev
 │   ├── stage
-│   └── prod
+│   └── (prod)
 │       
 ├── servicetemplates    # beach head servicetemplates
 │   ├── base 
 │   ├── dev
 │   ├── stage
-│   └── prod
+│   └── (prod)
 │       
 ├── services            # beach head services configs
 │   ├── cert-manager
 │   │   ├── base
 │   │   ├── dev
 │   │   ├── stage
-│   │   └── prod
+│   │   └── (prod)
 │   ...    
 │   ├── ingress-nginx
 │   ├── cert-manager
@@ -43,7 +43,7 @@
     ├── env             # env-related kcm & argocd configs
     │   ├── dev
     │   ├── stage
-    │   └── prod
+    │   └── (prod)
     ├── env-config-appset.yaml            # per-env configs generator
     ├── servicetemplate-env-appset.yaml   # per-env servicetemplate generator
     ├── k0rdent-config-app.yaml           # argocd app for kcm configuration
