@@ -176,6 +176,17 @@ kubectl rollout restart deployment -n sealed-secrets sealed-secrets
 kind cluster config - [kind-config.yaml](./other/kind-config.yaml)<br>
 kind cluster authenticaiton config - [authentication-config.yaml](./other/authentication-config.yaml)
 
+After you've configured Okta you should see similar setup:
+
+Okta directory groups
+[Okta groups](./doc/pic/okta_1.png)
+
+Okta applicatons
+[Okta applications](./doc/pic/okta_2.png)
+
+Okta security/API settings
+[Okta API](./doc/pic/okta_3.png)
+
 
 ### Setup OIDC for argocd
 
