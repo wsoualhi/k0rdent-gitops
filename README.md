@@ -54,9 +54,13 @@
 └── other                                 # additional scripts, configs etc.
 ```
 
+[[_TOC_]]
+
 ## Bootstrap k0rdent management cluster
 
 1. Create the management cluster using kind
+
+**If you're going to configure SSO (OIDC) then create cluster using [#sso]**
 
 (You might use any Kubernetes distro for the management cluster instead of kind. For example, [here](https://docs.k0rdent.io/v0.2.0/quickstarts/quickstart-1-mgmt-node-and-cluster/#install-a-single-node-k0s-cluster-locally-as-the-management-cluster) is k0s installation manual from k0rdent documentation.)
 ```console
@@ -113,9 +117,11 @@ management-server-apps contains all the needed argocd apps to configure k0rdent,
 
 9. Sync management-server-apps from argocd's web UI, then sync all the applications appeared.
 
-![argocd initial web ui - open app](doc/pic/argocd_3.png)
+![argocd initial web ui - synced apps](doc/pic/argocd_3.png)
 
 After sync you'll have "dev" and "stage" projects configured in argocd.
+
+![argocd - dev project](doc/pic/argocd_4.png)
 
 ## Cluster credentials encryption using sealed-secrets
 
