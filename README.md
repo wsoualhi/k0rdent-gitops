@@ -170,20 +170,22 @@ kubectl rollout restart deployment -n sealed-secrets sealed-secrets
 
 1. See [kind OIDC with Okta setup guide](https://docs.k0rdent.io/v0.2.0/admin/installation/auth/okta/) for the details.
 
-1. Examples<br>
-[kind cluster config](./other/kind-config.yaml)<br>
-[kind cluster authentication config](./other/authentication-config.yaml)
-
 1. [k0rdent RBAC documentation](https://docs.k0rdent.io/v0.2.0/admin/access/rbac/)
+
+1. Actual configs being used:<br>
+kind cluster config - [kind-config.yaml](./other/kind-config.yaml)<br>
+kind cluster authenticaiton config - [authentication-config.yaml](./other/authentication-config.yaml)
 
 
 ### Setup OIDC for argocd
+
+Argocd OIDC setup has already been configured within the repo manifest. Use the docs below for better understanding and adjusting your setup.
 
 1. [Configure OIDC for argocd](https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/#existing-oidc-provider)
 1. Argocd RBAC documentation<br>
 [argocd global RBAC documentation](https://argo-cd.readthedocs.io/en/stable/operator-manual/rbac/)<br>
 [argocd per-project RBAC documentation](https://argo-cd.readthedocs.io/en/stable/user-guide/projects/#project-roles)
-3. Examples<br>
-[argocd global config manifest](./management/argocd/argocd-cm.yaml)<br>
-[argocd global RBAC config manifest](./management/argocd/argocd-rbac-cm.yaml)<br>
-[argocd per-project RBAC manifest example](./management/env/dev/argocd-project.yaml)
+3. Actual configs being used:<br>
+argocd global config manifest - [argocd-cm.yaml](./management/argocd/argocd-cm.yaml)<br>
+argocd global RBAC config manifest - [argocd-rbac-cm.yaml](./management/argocd/argocd-rbac-cm.yaml)<br>
+argocd per-project RBAC manifest example ("dev" project) - [argocd-project.yaml](./management/env/dev/argocd-project.yaml)
