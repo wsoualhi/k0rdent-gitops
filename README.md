@@ -190,7 +190,7 @@ Okta security/API settings
 
 ### Setup OIDC for argocd
 
-Argocd OIDC setup has already been configured within the repo manifest. Use the docs below for better understanding and adjusting your setup.
+**Argocd OIDC setup has already been configured within the repo manifest.** Use the docs below for better understanding and adjusting your setup.
 
 1. [Configure OIDC for argocd](https://argo-cd.readthedocs.io/en/stable/operator-manual/user-management/#existing-oidc-provider)
 1. Argocd RBAC documentation<br>
