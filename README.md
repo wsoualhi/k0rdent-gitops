@@ -212,3 +212,27 @@ Use the docs below for better understanding and adjusting your setup.
 argocd global config manifest - [argocd-cm.yaml](./management/argocd/argocd-cm.yaml)<br>
 argocd global RBAC config manifest - [argocd-rbac-cm.yaml](./management/argocd/argocd-rbac-cm.yaml)<br>
 argocd per-project RBAC manifest example ("dev" project) - [argocd-project.yaml](./management/env/dev/argocd-project.yaml)
+
+
+### Existing CI/CD integration
+
+To integrate an existing CI/CD gitops pipelines we use [capi2argo-cluster-operator](https://github.com/dntosas/capi2argo-cluster-operator) as the managed clusters' discovery method. The operator finds the CAPI-managed clusters' secrets objects and generates Argocd's clusters from such ones.
+
+Installation:
+
+
+```console
+helm repo add capi2argo https://dntosas.github.io/capi2argo-cluster-operator/
+helm repo update
+helm upgrade -i capi2argo capi2argo/capi2argo-cluster-operator
+```
+
+After capi2argo operator is installed it stars adding the managed clusters under argocd control:
+
+![argocd ui - clusters](doc/pic/argocd_5.png)
+
+
+Then we use an Argocd's [applicaitonset](./management/env/dev/applicatons-appset.yaml) to generate the managed cluster's applications from manifests in /apps folder. After the managed cluster is up & running the applicationset generates its applications:
+
+
+![dev project - applications](doc/pic/argocd_6.png)
