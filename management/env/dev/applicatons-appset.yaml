@@ -1,0 +1,39 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: applications-dev
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+    # matrix 'parent' generator
+    - matrix:
+        generators:
+          # git generator, 'child' #1
+          - git:
+              repoURL: https://github.com/ironreality/k0rdent-gitops
+              revision: HEAD
+              directories:
+                - path: apps/*/dev
+          # cluster generator, 'child' #2
+          - clusters:
+              selector:
+                matchLabels:
+                  argocd.argoproj.io/secret-type: cluster
+  template:
+    metadata:
+      name: '{{.name}}-{{index .path.segments 1}}'
+    spec:
+      project: dev
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true
+          - ServerSideApply=true
+      source:
+        repoURL: https://github.com/ironreality/k0rdent-gitops
+        targetRevision: HEAD
+        path: '{{.path.path}}'
+      destination:
+        server: '{{.server}}'
+        #namespace: dev
