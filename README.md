@@ -50,6 +50,13 @@
 │   ├── kof-collectors
 │   └── dex
 │       
+├── (apps)              # (optional) non-servicetemplate based app manifests (such as existing CI/CD gitops setups)
+│   └── (kyverno)
+│       ├── base
+│       ├── dev
+│       ├── stage
+│       └── (prod)
+│       
 ├── management          # management cluster's apps & configs
 │   ├── kcm             # kcm configs
 │   ├── argocd          # argocd configs
