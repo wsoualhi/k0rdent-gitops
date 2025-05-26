@@ -1,7 +1,7 @@
 apiVersion: k0rdent.mirantis.com/v1alpha1
 kind: ClusterDeployment
 metadata:
-  name: vsurzhyk-aws-managed-dev-1
+  name: dev-1
   namespace: dev
 spec:
   template: aws-standalone-cp-0-2-0
