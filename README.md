@@ -73,6 +73,8 @@
 ├── doc                                   # documentation
 └── other                                 # additional scripts, configs etc.
 ```
+## Prerequesists
+1. kubectl, kind, argocd CLI, helm are installed 
 
 ## Bootstrap k0rdent management cluster
 
@@ -83,13 +85,14 @@
 (You might use any Kubernetes distro for the management cluster instead of kind. For example, [here](https://docs.k0rdent.io/v0.2.0/quickstarts/quickstart-1-mgmt-node-and-cluster/#install-a-single-node-k0s-cluster-locally-as-the-management-cluster) is k0s installation manual from k0rdent documentation.)
 ```console
 kind create cluster -n k0rdent
+kind get kubeconfig --name k0rdent > kubeconfig
 ```
 
 2. Install k0rdent
 
 **To check the installation status view [this doc](https://docs.k0rdent.io/v0.2.0/quickstarts/quickstart-1-mgmt-node-and-cluster/#install-k0rdent)**
 ```console
-helm install kcm oci://ghcr.io/k0rdent/kcm/charts/kcm --version 0.2.0 -n kcm-system --create-namespace
+helm install kcm oci://ghcr.io/k0rdent/kcm/charts/kcm --version 1.3.1 -n kcm-system --create-namespace
 ```
 
 3. Create k8s namespaces
@@ -104,7 +107,11 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 
 5. Login to argocd using the port forwarding using the initial password
 ```console
+# get the password with argo command or kubectl
 pass=$(argocd admin initial-password -n argocd | head -n 1)
+# or
+pass=$(kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d)
+
 export ARGOCD_OPTS='--port-forward --port-forward-namespace argocd'
 argocd login --insecure --username admin --password "$pass" localhost:8080
 ```
