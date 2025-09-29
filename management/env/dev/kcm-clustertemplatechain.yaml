@@ -5,4 +5,4 @@ metadata:
   namespace: kcm-system
 spec:
   supportedTemplates:
-    - name: aws-standalone-cp-0-2-0
+    - name: aws-standalone-cp-1-0-12

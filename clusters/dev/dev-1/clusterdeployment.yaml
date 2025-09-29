@@ -4,7 +4,7 @@ metadata:
   name: dev-1
   namespace: dev
 spec:
-  template: aws-standalone-cp-0-2-0
+  template: aws-standalone-cp-1-0-12
   credential: aws-cluster-identity-cred
   config:
     clusterLabels:

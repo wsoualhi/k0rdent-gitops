@@ -118,7 +118,7 @@ argocd login --insecure --username admin --password "$pass" localhost:8080
 
 6. Create the management server configuration using argocd app-of-apps
 ```console
-argocd app create management-server-apps --repo https://github.com/ironreality/k0rdent-gitops --path management --dest-server https://kubernetes.default.svc
+argocd app create management-server-apps --repo https://github.com/wsoualhi/k0rdent-gitops --path management --dest-server https://kubernetes.default.svc
 ```
 
 7. Port-forward the argocd's HTTPS port to access the argocd's web UI
@@ -126,7 +126,7 @@ argocd app create management-server-apps --repo https://github.com/ironreality/k
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 ```
 
-8. Open the web UI's URL http://localhost:8080 in browser and sign in using the initial argocd's password from step 5
+8. Open the web UI's URL http://localhost:8080 in browser and sign in using admin user and the initial argocd's password from step 5
 
 You should be able to see management-server-apps we created on step 7.
 
