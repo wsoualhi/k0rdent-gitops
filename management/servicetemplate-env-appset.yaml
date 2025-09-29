@@ -10,8 +10,8 @@ spec:
         revision: HEAD
         directories:
           - path: servicetemplates/*
+        exclude:
           - path: servicetemplates/base
-            exclude: true
   template:
     metadata:
       name: '{{path.basename}}-servicetemplates'
