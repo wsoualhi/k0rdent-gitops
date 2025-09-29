@@ -12,7 +12,7 @@ spec:
   - namespace: stage
     server: https://kubernetes.default.svc
   sourceRepos:
-  - https://github.com/ironreality/k0rdent-gitops
+  - https://github.com/wsoualhi/k0rdent-gitops
   roles:
   - description: stage project administrator
     groups:

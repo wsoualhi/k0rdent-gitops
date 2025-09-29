@@ -14,7 +14,7 @@ spec:
   - namespace: '*'
     name: 'dev-*'
   sourceRepos:
-  - https://github.com/ironreality/k0rdent-gitops
+  - https://github.com/wsoualhi/k0rdent-gitops
   roles:
   - description: dev project administrator
     groups:

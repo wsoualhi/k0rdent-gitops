@@ -9,4 +9,4 @@ spec:
   project: default
   source:
     path: management/argocd
-    repoURL: https://github.com/ironreality/k0rdent-gitops
+    repoURL: https://github.com/wsoualhi/k0rdent-gitops

@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/ironreality/k0rdent-gitops
+        repoURL: https://github.com/wsoualhi/k0rdent-gitops
         revision: HEAD
         directories:
           - path: management/env/*
@@ -16,7 +16,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/ironreality/k0rdent-gitops
+        repoURL: https://github.com/wsoualhi/k0rdent-gitops
         targetRevision: HEAD
         path: '{{path}}'
       destination:
