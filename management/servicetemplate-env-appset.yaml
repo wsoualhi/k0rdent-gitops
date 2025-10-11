@@ -16,7 +16,7 @@ spec:
     metadata:
       name: '{{path.basename}}-servicetemplates'
     spec:
-      project: '{{path.basename}}'
+      project: default  # Use 'default' or ensure projects exist
       source:
         repoURL: https://github.com/wsoualhi/k0rdent-gitops
         targetRevision: HEAD
@@ -24,3 +24,9 @@ spec:
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{path.basename}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true  # Auto-create namespaces
