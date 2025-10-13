@@ -1,5 +1,5 @@
 # k0rdent multi-env gitops repo blueprint
-
+- source : https://github.com/wsoualhi/k0rdent-gitops
 ## Table of content
 
 <!-- toc -->
